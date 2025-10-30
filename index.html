@@ -4,90 +4,185 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dolcea | Pastisseria Artesanal</title>
-
+  
+  <!-- Meta tags per a SEO i accessibilitat -->
+  <meta name="description" content="Dolcea - Pastisseria artesanal amb els millors ingredients naturals. Pastissos personalitzats per a moments especials.">
+  <meta name="keywords" content="pastissos, dolços, postres, artesà, Barcelona, Girona, Elx, Lleida">
+  
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="CSS/styles.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script>
+  
+  <script>
+  // SOLUCIÓ URGENT - Executar abans de qualsevol altra cosa
+  window.addEventListener('beforeunload', function() {
+      window.scrollTo(0, 0);
+  });
+  window.addEventListener('load', function() {
+      window.scrollTo(0, 0);
+      setTimeout(() => window.scrollTo(0, 0), 500);
+  });
+  </script>
 </head>
 
 <body>
+  <!-- Enllaç per saltar al contingut principal - accessibilitat -->
+  <a href="#main-content" class="skip-link">Saltar al contingut principal</a>
+  
   <!-- CAPÇALERA -->
   <header class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#hero">
-        <img src="img/logodolcea.png" alt="Dolcea" height="40">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand fw-bold" href="#hero" aria-label="Dolcea - Tornar a l'inici">
+        <img src="img/logodolcea.png" alt="Dolcea - Pastisseria Artesanal" height="50">
       </a>
       
       <!-- Botó mòbil -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Mostrar/amagar menú de navegació">
         <span class="navbar-toggler-icon"></span>
       </button>
       
-      <!-- Menú -->
-      <nav class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#hero">Inici</a></li>
-          <li class="nav-item"><a class="nav-link" href="#pastis-mes">Pastís del Mes</a></li>
-          <li class="nav-item"><a class="nav-link" href="#dolcos">Els nostres dolços</a></li>
-          <li class="nav-item"><a class="nav-link" href="#proces">Procés</a></li>
-          <li class="nav-item"><a class="nav-link" href="#valors">Valors</a></li>
-          <li class="nav-item"><a class="nav-link" href="#xefs">Xefs</a></li>
-          <li class="nav-item"><a class="nav-link" href="#moments">Moments</a></li>
-          <li class="nav-item"><a class="nav-link" href="#app">Promocions</a></li>
-          <li class="nav-item"><a class="nav-link" href="#compra">Compra</a></li>
-          <li class="nav-item"><a class="nav-link" href="#ubicacions">Ubicacions</a></li>
+      <!-- Menú de navegació principal -->
+      <nav class="collapse navbar-collapse" id="navbarNav" aria-label="Navegació principal">
+        <ul class="navbar-nav ms-auto" role="menubar">
+          <li class="nav-item" role="none"><a class="nav-link" href="#hero" role="menuitem">Inici</a></li>
+          <li class="nav-item" role="none"><a class="nav-link" href="#pastis-mes" role="menuitem">Pastís del Mes</a></li>
+          <li class="nav-item" role="none"><a class="nav-link" href="#dolcos" role="menuitem">Els nostres dolços</a></li>
+          <li class="nav-item" role="none"><a class="nav-link" href="#valors" role="menuitem">Valors</a></li>
+          <li class="nav-item" role="none"><a class="nav-link" href="#moments" role="menuitem">Moments</a></li>
+          <li class="nav-item" role="none"><a class="nav-link" href="#app" role="menuitem">Promocions</a></li>
+          <li class="nav-item" role="none"><a class="nav-link" href="#compra" role="menuitem">Compra</a></li>
+          <li class="nav-item" role="none"><a class="nav-link" href="#ubicacions" role="menuitem">Ubicacions</a></li>
+          <li class="nav-item" role="none"><a class="nav-link" href="#contacte" role="menuitem">Contacte</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- SECCIÓ PRINCIPAL -->
+  <!-- SECCIÓ PRINCIPAL HERO -->
   <section id="hero" class="d-flex align-items-center text-center">
     <!-- Video de fons -->
-    <video autoplay muted loop playsinline class="hero-video">
+    <video autoplay muted loop playsinline class="hero-video" aria-hidden="true">
       <source src="video/hero-video.mp4" type="video/mp4">
-      <!-- Fallback si el video no carga -->
-      Tu navegador no soporta videos HTML5.
+      El teu navegador no suporta videos HTML5.
     </video>
     
-    <!-- Capa overlay para mejorar legibilidad -->
+    <!-- Capa overlay per a millorar llegibilitat -->
     <div class="hero-overlay"></div>
     
     <div class="container hero-content">
-      <h1 class="display-4 fw-bold">Descobreix Dolcea</h1>
-      <p class="lead fs-4">Viu dolç. Viu Dolcea.</p>
-      <a href="#pastis-mes" class="btn btn-primary btn-lg mt-3">Comença el teu viatge</a>
+      <div class="hero-text-container" id="main-content" tabindex="-1">
+        <h1 class="hero-main-title">Dolcea</h1>
+        <p class="hero-subtitle">Viu dolç. Viu Dolcea.</p>
+        <div class="hero-btn-container">
+          <a href="#pastis-mes" class="btn btn-primary btn-lg mt-4">Comença el teu viatge</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- BARRA MÒBIL -->
-  <div class="barra-movil">
+  <!-- BARRA MÒBIL D'INFORMACIÓ -->
+  <div class="barra-movil" aria-label="Informació destacada de Dolcea">
     <div class="texto-movil">
-      Pastissos artesans · Ingredients naturals · Entrega a domicili · Celebra moments especials 
+      <span class="frase">Pastissos artesans</span>
+      <img src="img/Recurso 1.png" alt="il·lustració pastís dolcea" class="separador" aria-hidden="true">
+      <span class="frase">Ingredients naturals</span>
+      <img src="img/Recurso 2.png" alt="il·lustració barret de xef dolcea" class="separador" aria-hidden="true">
+      <span class="frase">Entrega a domicili</span>
+      <img src="img/Recurso 3.png" alt="il·lustració llaç" class="separador" aria-hidden="true">
+      <span class="frase">Celebra moments especials</span>
+      <img src="img/Recurso 4.png" alt="il·lustració cupcake" class="separador" aria-hidden="true">
+      
+      <!-- Repetim el contingut per a l'animació continua -->
+      <span class="frase">Pastissos artesans</span>
+      <img src="img/Recurso 1.png" alt="il·lustració pastís dolcea" class="separador" aria-hidden="true">
+      <span class="frase">Ingredients naturals</span>
+      <img src="img/Recurso 2.png" alt="il·lustració barret de xef dolcea" class="separador" aria-hidden="true">
+      <span class="frase">Entrega a domicili</span>
+      <img src="img/Recurso 3.png" alt="il·lustració llaç" class="separador" aria-hidden="true">
+      <span class="frase">Celebra moments especials</span>
+      <img src="img/Recurso 4.png" alt="il·lustració cupcake" class="separador" aria-hidden="true">
     </div>
   </div>
 
-  <!-- PASTÍS DEL MES -->
-  <section id="pastis-mes" class="text-center">
+  <!-- SECCIÓ EL NOSTRE PROPÒSIT -->
+  <section id="proposit" class="proposit-modern">
+    <div class="container">
+      <div class="proposit-header text-center">
+        <span class="proposit-badge">DOLÇOR PURA</span>
+        <h2 class="proposit-main-title">EL NOSTRE<br>PROPÒSIT</h2>
+      </div>
+
+      <div class="proposit-grid">
+        <!-- Targeta 1: Qualitat artesanal -->
+        <div class="proposit-card">
+          <div class="card-image-full">
+            <img src="img/textura pastís 1.JPG" alt="Pastís artesanal fet amb ingredients de qualitat" class="arch-image-full">
+            <div class="image-content-overlay">
+              <span class="card-category-full">ACCESSIBLE</span>
+              <h3 class="card-title-full">Qualitat artesanal<br>a preus justos</h3>
+              <p class="card-desc-full">Gaudeix de l'autenticitat sense compromisos econòmics</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Targeta 2: Experiència sense complicacions -->
+        <div class="proposit-card">
+          <div class="card-image-full">
+            <img src="img/textura pastís 2.JPG" alt="Entrega ràpida i còmoda a domicili" class="arch-image-full">
+            <div class="image-content-overlay">
+              <span class="card-category-full">CONVENIENT</span>
+              <h3 class="card-title-full">Experiència<br>sense complicacions</h3>
+              <p class="card-desc-full">Del nostre forn directament a la teva porta</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Targeta 3: Transformem moments -->
+        <div class="proposit-card">
+          <div class="card-image-full">
+            <img src="img/textura pastís 3.JPG" alt="Celebració amb pastís Dolcea" class="arch-image-full">
+            <div class="image-content-overlay">
+              <span class="card-category-full">INSPIRADOR</span>
+              <h3 class="card-title-full">Transformem<br>moments quotidians</h3>
+              <p class="card-desc-full">Cada mos és una nova experiència memorable</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓ PASTÍS DEL MES -->
+  <section id="pastis-mes" class="pastis-mes-section">
     <div class="container">
       <div class="pastis-mes-content">
-        <h2 class="mb-4">Pastís del Mes</h2>
+        <h2 class="pastis-mes-title">Pastís del Mes</h2>
         
         <div class="row align-items-center">
-          <!-- Slider de Videos - Izquierda -->
+          <!-- Slider de Videos -->
           <div class="col-12 col-lg-6 mb-4 mb-lg-0">
             <div id="videoSlider" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner video-slider-container rounded">
                 <!-- Video 1 -->
                 <div class="carousel-item active">
-                  <video class="d-block w-100 h-100" autoplay muted loop playsinline>
+                  <video class="d-block w-100 h-100" autoplay muted loop playsinline aria-label="Vídeo del pastís Boca Sagnant - vista frontal">
                     <source src="video/pastisdelmes1.mp4" type="video/mp4">
                     El teu navegador no suporta el vídeo.
                   </video>
                 </div>
                 <!-- Video 2 -->
                 <div class="carousel-item">
-                  <video class="d-block w-100 h-100" autoplay muted loop playsinline>
+                  <video class="d-block w-100 h-100" autoplay muted loop playsinline aria-label="Vídeo del pastís Boca Sagnant - detall de la decoració">
                     <source src="video/pastisdelmes2.mp4" type="video/mp4">
                     El teu navegador no suporta el vídeo.
                   </video>
@@ -106,230 +201,756 @@
               
               <!-- Indicadores -->
               <div class="carousel-indicators">
-                <button type="button" data-bs-target="#videoSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Video 1"></button>
-                <button type="button" data-bs-target="#videoSlider" data-bs-slide-to="1" aria-label="Video 2"></button>
+                <button type="button" data-bs-target="#videoSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Vídeo 1"></button>
+                <button type="button" data-bs-target="#videoSlider" data-bs-slide-to="1" aria-label="Vídeo 2"></button>
               </div>
             </div>
           </div>
           
-          <!-- Texto - Derecha -->
+          <!-- Texto informatiu -->
           <div class="col-12 col-lg-6 text-lg-start text-center">
-            <h3 class="mb-3">Tarta Red Velvet</h3>
-            <p class="mb-4">El nostre pastís estrella amb base de xocolata vermell i cobertura de formatge cremós. Perfecte per a ocasions especials.</p>
-            <a href="#compra" class="btn btn-light">Demana'l Ara</a>
+            <h3 class="pastis-mes-subtitle">Boca Sagnant</h3>
+            <p class="pastis-mes-desc">El nostre pastís d'Halloween amb base de nata, una tenebrosa boca oberta amb dents de xocolata blanca i "sang" de cirera. Perfecte per a una festa esgarrifosa!</p>
+            <a href="#compra" class="btn btn-light pastis-mes-btn">Demana'l Ara</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CATÀLEG DE PRODUCTES -->
-  <section id="dolcos" class="text-center py-4">
-    <div class="container">
-      <h2 class="mb-3">Els nostres dolços</h2>
-      <p class="mb-4">Cada pastís té la seva història i crea moments únics.</p>
+  <!-- SECCIÓ CATÀLEG DE PRODUCTES -->
+  <section id="dolcos" class="dolcos-section">
+    <div class="container-fluid px-0">
+      <div class="dolcos-header">
+        <h2 class="dolcos-title">Els nostres dolços</h2>
+        <p class="dolcos-subtitle">Cada pastís té la seva història i crea moments únics.</p>
+      </div>
 
-      <div class="row g-3">
-        <!-- Producte 1 -->
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card bg-light border-0 shadow-sm p-3 h-100">
-            <div class="img-placeholder">PASTÍS DE XOCOLATA</div>
-            <h3 class="mt-3">Sacher</h3>
-            <p>El clàssic pastís de xocolata amb una capa de melmelada d'albercoc.</p>
+      <div class="dolcos-slider-container">
+        <div class="dolcos-slider">
+          <!-- Item 1: Sacher -->
+          <div class="dolcos-item">
+            <img src="img/sacher.jpg" alt="Pastís Sacher - xocolata amb melmelada d'albercoc" class="dolcos-img">
+            <h3 class="dolcos-item-title">Sacher</h3>
+            <p class="dolcos-item-desc">El clàssic pastís de xocolata amb una capa de melmelada d'albercoc.</p>
           </div>
-        </div>
 
-        <!-- Producte 2 -->
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card bg-light border-0 shadow-sm p-3 h-100">
-            <div class="img-placeholder">PASTÍS DE FRUITA</div>
-            <h3 class="mt-3">Tarta de maduixa</h3>
-            <p>Lleuger i refrescant, amb maduixes fresques de temporada.</p>
+          <!-- Item 2: Cheesecake -->
+          <div class="dolcos-item">
+            <img src="img/cheesecake.jpg" alt="Cheesecake cremós amb base de galeta" class="dolcos-img">
+            <h3 class="dolcos-item-title">Cheesecake</h3>
+            <p class="dolcos-item-desc">La nostra versió cremosa amb base de galeta i mermelada de nabius.</p>
           </div>
-        </div>
 
-        <!-- Producte 3 -->
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card bg-light border-0 shadow-sm p-3 h-100">
-            <div class="img-placeholder">PASTÍS DE QUESO</div>
-            <h3 class="mt-3">Cheesecake</h3>
-            <p>La nostra versió cremosa amb base de galeta i mermelada de nabius.</p>
+          <!-- Item 3: Tiramisú -->
+          <div class="dolcos-item">
+            <img src="img/tiramisu.jpg" alt="Tiramisú italià amb cafè i mascarpone" class="dolcos-img">
+            <h3 class="dolcos-item-title">Tiramisú</h3>
+            <p class="dolcos-item-desc">Capes de cafè, mascarpone i galetes suau, un clàssic italià amb toc Dolcea.</p>
+          </div>
+
+          <!-- Item 4: Xocolata Trufa -->
+          <div class="dolcos-item">
+            <img src="img/xocolatatrufa.jpg" alt="Pastís de xocolata trufa intens" class="dolcos-img">
+            <h3 class="dolcos-item-title">Xocolata Trufa</h3>
+            <p class="dolcos-item-desc">Intens i sedós, cobert de trufa de xocolata negra per un final dolç.</p>
+          </div>
+
+          <!-- Item 5: Pastís Crema Cirera -->
+          <div class="dolcos-item">
+            <img src="img/pastiscremacirera.jpg" alt="Pastís lleuger amb crema i cireres" class="dolcos-img">
+            <h3 class="dolcos-item-title">Pastís Crema Cirera</h3>
+            <p class="dolcos-item-desc">Lleuger amb crema suau i cireres fresques, perfecte per l'estiu.</p>
+          </div>
+
+          <!-- Item 6: Pastís de Llimona -->
+          <div class="dolcos-item">
+            <img src="img/llimona.JPG" alt="Pastís de llimona refrescant" class="dolcos-img">
+            <h3 class="dolcos-item-title">Pastís de Llimona</h3>
+            <p class="dolcos-item-desc">Àcid i refrescant, amb merengue italià i llimona natural.</p>
+          </div>
+
+          <!-- Item 7: Opera -->
+          <div class="dolcos-item">
+            <img src="img/opera.JPG" alt="Pastís Opera elegant" class="dolcos-img">
+            <h3 class="dolcos-item-title">Opera</h3>
+            <p class="dolcos-item-desc">Capas de xocolata, cafè i ametlla en un pastís francès elegant.</p>
+          </div>
+
+          <!-- Item 8: Red Velvet -->
+          <div class="dolcos-item">
+            <img src="img/redvelvet.JPG" alt="Pastís Red Velvet amb crema de formatge" class="dolcos-img">
+            <h3 class="dolcos-item-title">Red Velvet</h3>
+            <p class="dolcos-item-desc">Base vermella suau amb crema de formatge, per moments especials.</p>
+          </div>
+
+          <!-- Item 9: Pastís Oreo -->
+          <div class="dolcos-item">
+            <img src="img/oreo.JPG" alt="Pastís Oreo amb galetes i crema" class="dolcos-img">
+            <h3 class="dolcos-item-title">Pastís Oreo</h3>
+            <p class="dolcos-item-desc">Deliciosa combinació de galetes Oreo amb crema de xocolata i vainilla.</p>
+          </div>
+
+          <!-- Item 10: Pastís KitKat -->
+          <div class="dolcos-item">
+            <img src="img/kitkat.JPG" alt="Pastís KitKat amb barres de xocolata" class="dolcos-img">
+            <h3 class="dolcos-item-title">Pastís KitKat</h3>
+            <p class="dolcos-item-desc">Barres de KitKat que envolten un pastís de xocolata amb nougat cremós.</p>
+          </div>
+
+          <!-- Item 11: Pastís Maduixa -->
+          <div class="dolcos-item">
+            <img src="img/maduixa.JPG" alt="Pastís de maduixa amb nata fresca" class="dolcos-img">
+            <h3 class="dolcos-item-title">Pastís Maduixa</h3>
+            <p class="dolcos-item-desc">Biscuit esponjós amb nata fresca i maduixes naturals de temporada.</p>
+          </div>
+
+          <!-- Item 12: Pastís Kinder -->
+          <div class="dolcos-item">
+            <img src="img/kinder.JPG" alt="Pastís Kinder amb xocolata dolça" class="dolcos-img">
+            <h3 class="dolcos-item-title">Pastís Kinder</h3>
+            <p class="dolcos-item-desc">La dolçor de la xocolata Kinder en un pastís cremós i indulgent.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROCÉS DE FABRICACIÓ -->
-  <section id="proces" class="text-center py-4 bg-alternate">
+  <!-- SECCIÓ PERSONALITZACIÓ DE PASTISOS -->
+  <section id="personalitzacio" class="personalitzacio-section">
     <div class="container">
-      <h2 class="mb-3">El nostre procés</h2>
-      <p class="mb-4">Mostrem com cada pastís es fa amb amor i detall.</p>
-      
-      <div class="row mt-3 align-items-center">
-        <div class="col-12 col-md-6 mb-3 mb-md-0">
-          <div class="img-placeholder h-100">IMATGES DEL PROCÉS ARTESÀ</div>
-        </div>
-        <div class="col-12 col-md-6 text-start">
-          <ul class="list-unstyled">
-            <li class="mb-2">✔️ <strong>Ingredients naturals i locals</strong></li>
-            <li class="mb-2">✔️ <strong>Cuina artesanal</strong></li>
-            <li class="mb-2">✔️ <strong>Cura per cada detall</strong></li>
-          </ul>
+      <div class="personalitzacio-header text-center">
+        <h2 class="personalitzacio-title">Personalitza el teu pastís</h2>
+        <p class="personalitzacio-subtitle">Crea el pastís perfecte combinant bases i toppings a la teva mida</p>
+      </div>
+
+      <div class="personalitzacio-content">
+        <!-- Contenedor principal -->
+        <div class="personalitzacio-container">
+          
+          <!-- Plato con el pastel -->
+          <div class="plat-container">
+            <!-- Imagen del plato -->
+            <img src="img/plat.png" alt="Plat per servir pastissos Dolcea" class="plat-img">
+            
+            <!-- Contenedor del pastel sobre el plato -->
+            <div class="pastel-container">
+              <div class="pastel-complet">
+                <!-- Topping -->
+                <div class="topping-layer">
+                  <img id="topping-img" src="img/maduixa nabiu.png" alt="Topping seleccionat" class="topping-img">
+                </div>
+                <!-- Base -->
+                <div class="base-layer">
+                  <img id="base-img" src="img/base nata.png" alt="Base seleccionada" class="base-img">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controles de personalización -->
+          <div class="controles-container">
+            
+            <!-- Selector de bases -->
+            <div class="selector-base">
+              <h3 class="selector-title">Tria la base</h3>
+              <div class="selector-slider-container">
+                <div class="bases-slider">
+                  <!-- Base 1: Nata -->
+                  <div class="ingredient-option active" data-base="base nata.png" tabindex="0">
+                    <img src="img/base nata.png" alt="Base de nata" class="ingredient-img">
+                    <span class="ingredient-name">Nata</span>
+                  </div>
+
+                  <!-- Base 2: 3 Xocolates -->
+                  <div class="ingredient-option" data-base="base 3 xocos.png" tabindex="0">
+                    <img src="img/base 3 xocos.png" alt="Base de 3 xocolates" class="ingredient-img">
+                    <span class="ingredient-name">3 Xocolates</span>
+                  </div>
+
+                  <!-- Base 3: Bizcocho -->
+                  <div class="ingredient-option" data-base="base bizcocho.png" tabindex="0">
+                    <img src="img/base bizcocho.png" alt="Base de bizcocho" class="ingredient-img">
+                    <span class="ingredient-name">Bizcocho</span>
+                  </div>
+
+                  <!-- Base 4: Caramel Xocolata -->
+                  <div class="ingredient-option" data-base="base caramel xoco.png" tabindex="0">
+                    <img src="img/base caramel xoco.png" alt="Base de caramel i xocolata" class="ingredient-img">
+                    <span class="ingredient-name">Caramel Xocolata</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Selector de toppings -->
+            <div class="selector-topping">
+              <h3 class="selector-title">Afegeix el topping</h3>
+              <div class="selector-slider-container">
+                <div class="toppings-slider">
+                  <!-- Topping 1: Maduixa & Nabiu -->
+                  <div class="ingredient-option active" data-topping="maduixa nabiu.png" tabindex="0">
+                    <img src="img/maduixa nabiu.png" alt="Topping de maduixa i nabiu" class="ingredient-img">
+                    <span class="ingredient-name">Maduixa & Nabiu</span>
+                  </div>
+
+                  <!-- Topping 2: Maduixa & Nata -->
+                  <div class="ingredient-option" data-topping="maduixa nata.png" tabindex="0">
+                    <img src="img/maduixa nata.png" alt="Topping de maduixa i nata" class="ingredient-img">
+                    <span class="ingredient-name">Maduixa & Nata</span>
+                  </div>
+
+                  <!-- Topping 3: Nueces -->
+                  <div class="ingredient-option" data-topping="nueces.png" tabindex="0">
+                    <img src="img/nueces.png" alt="Topping de nous" class="ingredient-img">
+                    <span class="ingredient-name">Nueces</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botón de compra -->
+            <div class="personalitzacio-actions">
+              <button class="btn-comanda" id="btn-comanda">Demana el teu pastís personalitzat</button>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VALORS -->
-  <section id="valors" class="py-5">
+  <!-- SECCIÓ VALORS I CITES -->
+  <section id="valors" class="valors-section-extreme">
+    <div class="valors-background">
+      <img src="img/fondogelat.jpeg" alt="Fons de gelat artesanal" class="valors-bg-image">
+      <div class="valors-overlay"></div>
+    </div>
+    
     <div class="container">
-      <div class="valors-box">
-        <div class="row align-items-center">
-          <div class="col-12 col-lg-8 offset-lg-2">
-            <div class="valors-content text-center p-4">
-              <div class="img-placeholder valors-img-top">PASTÍS ARTESÀ</div>
-              <blockquote class="mb-4">
-                <p class="quote-text fs-5">&quot;Amb cada mos, recordem que la dolçor veritable ve de la tradició i la passió per ingredients que saben a casa.&quot;</p>
-              </blockquote>
-              <div class="img-placeholder valors-img-bottom">PASTÍS ARTESÀ</div>
-              <cite class="quote-attribution">Dolcea, Pastisseria Artesanal</cite>
-              <div class="mt-4">
-                <a href="#dolcos" class="btn btn-primary">Explora els nostres dolços</a>
+      <div class="valors-content-wrapper">
+        <div class="valors-card-rectangle">
+          <!-- Imatge superior dreta -->
+          <img src="img/pastisset.png" alt="Pastisset decoratiu" class="decoracion decoracion-superior-dreta">
+          
+          <!-- Imatge inferior esquerra -->
+          <img src="img/xispitas.png" alt="Xispitas de xocolata" class="decoracion decoracion-inferior-esquerra">
+          
+          <!-- Contingut del text -->
+          <div class="valors-text-content">
+            <div class="quote-container">
+              <p class="valors-quote" id="current-quote">"All the world is birthday cake, so take a piece, but not too much."</p>
+              <cite class="valors-author" id="current-author">— George Harrison</cite>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Navegació de fletxes -->
+        <div class="valors-navigation">
+          <button class="nav-arrow prev-arrow" id="prev-quote" aria-label="Cita anterior">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 18L9 12L15 6" stroke="#731421" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="nav-arrow next-arrow" id="next-quote" aria-label="Cita següent">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 18L15 12L9 6" stroke="#731421" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓ MOMENTS DOLCEA - GALERIA DE CLIENTS -->
+  <section id="moments" class="moments-section">
+    <div class="container">
+      <div class="moments-header text-center">
+        <h2 class="moments-title">Moments Dolcea</h2>
+        <p class="moments-subtitle">Records dolços que han marcat la nostra història</p>
+      </div>
+
+      <!-- Filtros de categorías -->
+      <div class="moments-filters" role="group" aria-label="Filtres de categories de moments">
+        <button class="filter-btn active" data-filter="all" tabindex="0">Tots</button>
+        <button class="filter-btn" data-filter="bodes" tabindex="0">Bodes</button>
+        <button class="filter-btn" data-filter="aniversaris" tabindex="0">Aniversaris</button>
+        <button class="filter-btn" data-filter="infantils" tabindex="0">Infantils</button>
+        <button class="filter-btn" data-filter="especials" tabindex="0">Especials</button>
+      </div>
+
+      <!-- Galería de imágenes -->
+      <div class="moments-gallery" role="region" aria-label="Galeria de moments Dolcea">
+        <!-- Imagen 1 - Aniversari noia jove -->
+        <div class="gallery-item" data-category="aniversaris" role="img" aria-label="Noia jove celebrant el seu aniversari">
+          <div class="gallery-card">
+            <img src="img/records1.JPG" alt="Noia jove celebrant el seu aniversari amb pastís Dolcea" class="gallery-img">
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <span class="gallery-category">Aniversari</span>
+                <h3 class="gallery-title">Celebració Jove</h3>
+                <p class="gallery-desc">Una nit inoblidable amb les seues amigues</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagen 2 - Aniversari parella -->
+        <div class="gallery-item" data-category="aniversaris" role="img" aria-label="Parella celebrant aniversari">
+          <div class="gallery-card">
+            <img src="img/records2.JPG" alt="Parella celebrant aniversari amb pastís Dolcea" class="gallery-img">
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <span class="gallery-category">Aniversari</span>
+                <h3 class="gallery-title">Amor i Dolçor</h3>
+                <p class="gallery-desc">Un moment especial compartit en parella</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagen 3 - Aniversari noia amb amigues -->
+        <div class="gallery-item" data-category="aniversaris" role="img" aria-label="Grup d'amigues celebrant aniversari">
+          <div class="gallery-card">
+            <img src="img/records3.JPG" alt="Grup d'amigues celebrant aniversari" class="gallery-img">
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <span class="gallery-category">Aniversari</span>
+                <h3 class="gallery-title">Festa amb Amigues</h3>
+                <p class="gallery-desc">Rient i celebrant la vida plegades</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagen 4 - Aniversari noia amb amigues 2 -->
+        <div class="gallery-item" data-category="aniversaris" role="img" aria-label="Amigues en festa d'aniversari">
+          <div class="gallery-card">
+            <img src="img/records4.JPG" alt="Amigues en festa d'aniversari" class="gallery-img">
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <span class="gallery-category">Aniversari</span>
+                <h3 class="gallery-title">Nit de Festa</h3>
+                <p class="gallery-desc">Records que duraran tota la vida</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagen 5 - Aniversari noi -->
+        <div class="gallery-item" data-category="aniversaris" role="img" aria-label="Noi celebrant el seu aniversari">
+          <div class="gallery-card">
+            <img src="img/records5.JPG" alt="Noi celebrant el seu aniversari" class="gallery-img">
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <span class="gallery-category">Aniversari</span>
+                <h3 class="gallery-title">Celebració Masculina</h3>
+                <p class="gallery-desc">Un pastís per a un dia especial</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagen 6 - Aniversari noia -->
+        <div class="gallery-item" data-category="aniversaris" role="img" aria-label="Noia somrient amb el seu pastís">
+          <div class="gallery-card">
+            <img src="img/records6.JPG" alt="Noia somrient amb el seu pastís d'aniversari" class="gallery-img">
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <span class="gallery-category">Aniversari</span>
+                <h3 class="gallery-title">Somriure Dolç</h3>
+                <p class="gallery-desc">La felicitat d'un aniversari perfecte</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagen 7 - Aniversari infantil nena -->
+        <div class="gallery-item" data-category="infantils" role="img" aria-label="Nena en la seva festa d'aniversari">
+          <div class="gallery-card">
+            <img src="img/records7.JPG" alt="Nena en la seva festa d'aniversari infantil" class="gallery-img">
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <span class="gallery-category">Infantil</span>
+                <h3 class="gallery-title">Festa de Princesa</h3>
+                <p class="gallery-desc">Màgia i il·lusió en cada mos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagen 9 - Boda de nit -->
+        <div class="gallery-item" data-category="bodes" role="img" aria-label="Boda celebrada a la nit">
+          <div class="gallery-card">
+            <img src="img/records9.JPG" alt="Boda celebrada a la nit amb pastís nupcial" class="gallery-img">
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <span class="gallery-category">Boda</span>
+                <h3 class="gallery-title">Nit Màgica</h3>
+                <p class="gallery-desc">Un final perfecte per al dia més especial</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagen 10 - Aniversario 50 anys -->
+        <div class="gallery-item" data-category="especials" role="img" aria-label="Celebració de 50 anys">
+          <div class="gallery-card">
+            <img src="img/records10.jpeg" alt="Celebració de 50 anys amb pastís commemoratiu" class="gallery-img">
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <span class="gallery-category">Especial</span>
+                <h3 class="gallery-title">50 Anys de Vida</h3>
+                <p class="gallery-desc">Mitja vida mereix el millor pastís</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagen 11 - Aniversari infantil nen -->
+        <div class="gallery-item" data-category="infantils" role="img" aria-label="Nen en la seva festa d'aniversari">
+          <div class="gallery-card">
+            <img src="img/records11.jpeg" alt="Nen en la seva festa d'aniversari" class="gallery-img">
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <span class="gallery-category">Infantil</span>
+                <h3 class="gallery-title">Aventura Infantil</h3>
+                <p class="gallery-desc">Diversió i dolços per als més petits</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagen 12 - Aniversari infantil nen 2 -->
+        <div class="gallery-item" data-category="infantils" role="img" aria-label="Festa infantil amb decoració temàtica">
+          <div class="gallery-card">
+            <img src="img/records12.jpeg" alt="Festa infantil amb decoració temàtica" class="gallery-img">
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <span class="gallery-category">Infantil</span>
+                <h3 class="gallery-title">Celebració Heroica</h3>
+                <p class="gallery-desc">Els somnis es converteixen en realitat</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagen 13 - Aniversario 50 anys 2 -->
+        <div class="gallery-item" data-category="especials" role="img" aria-label="Grup celebrant 50 anys">
+          <div class="gallery-card">
+            <img src="img/records13.jpeg" alt="Grup celebrant 50 anys amb pastís" class="gallery-img">
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <span class="gallery-category">Especial</span>
+                <h3 class="gallery-title">Experiència Compartida</h3>
+                <p class="gallery-desc">50 anys de moments inoblidables</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagen 14 - Boda -->
+        <div class="gallery-item" data-category="bodes" role="img" aria-label="Parella de nou casats">
+          <div class="gallery-card">
+            <img src="img/records14.jpeg" alt="Parella de nou casats amb el seu pastís de boda" class="gallery-img">
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <span class="gallery-category">Boda</span>
+                <h3 class="gallery-title">Els Nou Casats</h3>
+                <p class="gallery-desc">Començant una nova vida amb dolçor</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagen 15 - Boda parella tallant pastís -->
+        <div class="gallery-item" data-category="bodes" role="img" aria-label="Parella tallant el pastís de boda">
+          <div class="gallery-card">
+            <img src="img/records15.jpeg" alt="Parella tallant el pastís de boda" class="gallery-img">
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <span class="gallery-category">Boda</span>
+                <h3 class="gallery-title">Primer Tall</h3>
+                <p class="gallery-desc">Compartint el primer dolç com a esposos</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- EQUIP -->
-  <section id="xefs" class="text-center py-4">
-    <div class="container">
-      <h2 class="mb-3">Els nostres xefs</h2>
-      <p class="mb-4">Les persones que fan possible Dolcea.</p>
-      
-      <div class="row g-3">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="img-placeholder mb-2">FOTO D'ANNA</div>
-          <h3>Anna</h3>
-          <p>Especialista en xocolata i textures fines.</p>
-        </div>
-        
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="img-placeholder mb-2">FOTO DE MARC</div>
-          <h3>Marc</h3>
-          <p>Expert en pastissos tradicionals catalans.</p>
-        </div>
-        
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="img-placeholder mb-2">FOTO DE LAURA</div>
-          <h3>Laura</h3>
-          <p>Creativa de noves combinacions dolces.</p>
-        </div>
+      <!-- CTA per a reservar pastís -->
+      <div class="moments-cta text-center">
+        <p class="cta-text">Vols que el teu moment formi part de la nostra història?</p>
+        <a href="#personalitzacio" class="btn cta-btn">Reserva el teu pastís</a>
       </div>
     </div>
   </section>
 
-  <!-- GALERIA DE CLIENTS -->
-  <section id="moments" class="text-center py-4 bg-alternate">
-    <div class="container">
-      <h2 class="mb-3">Moments Dolcea</h2>
-      <p class="mb-4">Històries i fotos reals de clients feliços.</p>
-      
-      <div class="row g-2">
-        <div class="col-6 col-md-4">
-          <div class="img-placeholder">BODA</div>
-          <p class="small mt-2">Pastís de noces</p>
-        </div>
-        <div class="col-6 col-md-4">
-          <div class="img-placeholder">ANIVERSARI</div>
-          <p class="small mt-2">Aniversari especial</p>
-        </div>
-        <div class="col-6 col-md-4">
-          <div class="img-placeholder">COMUNIÓ</div>
-          <p class="small mt-2">Primera Comunió</p>
-        </div>
+  <!-- SECCIÓ JOIN THE COMMUNITY -->
+  <section id="app" class="join-community-dolcea">
+    <div class="community-hero">
+      <div class="hero-image-container">
+        <img src="img/fondojoin.png" alt="Comunitat Dolcea - Persones gaudint dels nostres pastissos" class="hero-image">
+        <div class="hero-overlay-app"></div>
       </div>
-    </div>
-  </section>
-
-  <!-- PROMOCIONS -->
-  <section id="app" class="text-center py-4">
-    <div class="container">
-      <h2 class="mb-3">Promocions Dolcea</h2>
-      <p class="mb-4">Prova la nostra mini app per guanyar descomptes!</p>
-      
-      <div class="wheel-placeholder mb-3">
-        RULETA INTERACTIVA
-      </div>
-      
-      <p class="mt-3">Descarrega la nostra App per obtenir el premi 🎁</p>
-      <div class="mt-4">
-        <button class="btn btn-primary me-2">App Store</button>
-        <button class="btn btn-primary">Google Play</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPRA -->
-  <section id="compra" class="text-center py-4 bg-alternate">
-    <div class="container">
-      <h2 class="mb-3">Crea el teu record Dolcea</h2>
-      <p class="mb-4">Personalitza i encarrega el teu pastís especial.</p>
-      <a href="#" class="btn btn-primary mt-2">Fes la teva comanda</a>
-    </div>
-  </section>
-
-  <!-- UBICACIONS -->
-  <section id="ubicacions" class="text-center py-4">
-    <div class="container">
-      <h2 class="mb-3">Les nostres pastisseries</h2>
-      <p class="mb-4">Troba la teva pastisseria Dolcea més propera</p>
-      
-      <div class="row g-4">
-        <!-- Lleida -->
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="card border-0 shadow-sm h-100">
-            <div class="map-placeholder" data-city="lleida">
-              MAPA LLEIDA
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">Lleida</h3>
-              <p class="card-text">Carrer del Forn, 23<br>25002 Lleida</p>
-              <p class="card-text"><small>Obert de dilluns a dissabte de 8:00 a 20:00</small></p>
-              <a href="#" class="btn btn-outline-primary btn-sm">Com arribar-hi</a>
+      <div class="hero-content-app">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+              <h2 class="hero-title-app">UNEIX-TE A LA<br>COMUNITAT</h2>
+              <p class="hero-subtitle-app">
+                Uneix-te a Dolcea People, aconsegueix accés privilegiat a esdeveniments exclusius, tastings privats i pastissos gratis. Salta't la cua, demana els teus pastissos a l'App.
+              </p>
+              <button class="hero-btn">Descarrega l'App</button>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓ NIVELLS D'APP -->
+  <section id="nivells-app" class="app-nivells-dolcea">
+    <div class="container-fluid p-0">
+      <div class="nivells-accordion">
         
+        <!-- NIVELL 1: INICIANT -->
+        <div class="nivell-accordion-item" data-level="iniciant">
+          <div class="nivell-accordion-header" tabindex="0">
+            <div class="nivell-main-info">
+              <span class="nivell-badge">INICIANT.</span>
+              <h3 class="nivell-name">0-20 SEGELLS</h3>
+              <p class="nivell-subtitle">COMENCES AQUÍ</p>
+            </div>
+          </div>
+          <div class="nivell-accordion-content">
+            <div class="benefits-grid">
+              <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-content">
+                  <h4>Repte Dolcea</h4>
+                  <p>Demana 10 pastissos individuals i et regalem l'11è</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-content">
+                  <h4>Convida un Amic</h4>
+                  <p>Convida un amic i guanya 3€ quan faci la seva primera comanda</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NIVELL 2: DOLÇ -->
+        <div class="nivell-accordion-item" data-level="dolc">
+          <div class="nivell-accordion-header" tabindex="0">
+            <div class="nivell-main-info">
+              <span class="nivell-badge">DOLÇ.</span>
+              <h3 class="nivell-name">21-50 SEGELLS</h3>
+              <p class="nivell-subtitle">SEGUEIX CREIXENT</p>
+            </div>
+          </div>
+          <div class="nivell-accordion-content">
+            <div class="benefits-grid">
+              <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-content">
+                  <h4>Repte del Xef</h4>
+                  <p>Demana 15 pastissos especials i rep un dessert de regal</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-content">
+                  <h4>Xarxa Dolça</h4>
+                  <p>Convida 3 amics i guanya 5€ per cada un</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-content">
+                  <h4>Aniversari Premium</h4>
+                  <p>10€ de crèdit durant la teva setmana d'aniversari</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NIVELL 3: EXPERT -->
+        <div class="nivell-accordion-item" data-level="expert">
+          <div class="nivell-accordion-header" tabindex="0">
+            <div class="nivell-main-info">
+              <span class="nivell-badge">EXPERT.</span>
+              <h3 class="nivell-name">51-100 SEGELLS</h3>
+              <p class="nivell-subtitle">GAUDIX DE MÉS</p>
+            </div>
+          </div>
+          <div class="nivell-accordion-content">
+            <div class="benefits-grid">
+              <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-content">
+                  <h4>Repte de Temporada</h4>
+                  <p>Demana 20 pastissos de temporada i rep una experiència de tast</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-content">
+                  <h4>Comunitat Exclusiva</h4>
+                  <p>Accés a esdeveniments privats i tastings amb els nostres pastissers</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-content">
+                  <h4>Regals Mensuals</h4>
+                  <p>Pastissos exclusius i tastets cada mes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NIVELL 4: LEGENDARI -->
+        <div class="nivell-accordion-item" data-level="legendari">
+          <div class="nivell-accordion-header" tabindex="0">
+            <div class="nivell-main-info">
+              <span class="nivell-badge">LEGENDARI.</span>
+              <h3 class="nivell-name">100+ SEGELLS</h3>
+              <p class="nivell-subtitle">MÀXIM NIVELL</p>
+            </div>
+          </div>
+          <div class="nivell-accordion-content">
+            <div class="benefits-grid">
+              <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-content">
+                  <h4>Experiència VIP</h4>
+                  <p>Accés il·limitat a tots els esdeveniments i classes de pastisseria</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-content">
+                  <h4>Personalització</h4>
+                  <p>Crea el teu propi pastís amb els nostres pastissers</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon">✓</div>
+                <div class="benefit-content">
+                  <h4>Merchandising Exclusiu</h4>
+                  <p>Productes Dolcea limitats i personalitzats</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓ COMPRA -->
+  <section id="compra" class="text-center py-5 bg-alternate">
+    <div class="container">
+      <h2 class="compra-title">Crea el teu record Dolcea</h2>
+      <p class="compra-subtitle">Personalitza i encarrega el teu pastís especial.</p>
+      <a href="#personalitzacio" class="btn btn-primary mt-2 compra-btn">Fes la teva comanda</a>
+    </div>
+  </section>
+
+  <!-- SECCIÓ FORMULARI DE CONTACTE -->
+  <section id="contacte" class="contacte-section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="contacte-title text-center mb-4">Contacta amb nosaltres</h2>
+          <p class="contacte-subtitle text-center mb-5">Tens alguna pregunta o vols fer una comanda especial? Omple el formulari i et respondrem el més aviat possible.</p>
+          
+          <form class="contacte-form" aria-label="Formulari de contacte">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="nom" class="form-label">Nom complet *</label>
+                <input type="text" class="form-control" id="nom" required aria-required="true">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Correu electrònic *</label>
+                <input type="email" class="form-control" id="email" required aria-required="true">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="assumpte" class="form-label">Assumpte *</label>
+              <input type="text" class="form-control" id="assumpte" required aria-required="true">
+            </div>
+            <div class="mb-3">
+              <label for="missatge" class="form-label">Missatge *</label>
+              <textarea class="form-control" id="missatge" rows="5" required aria-required="true"></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary contacte-btn">Enviar missatge</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓ UBICACIONS -->
+  <section id="ubicacions" class="text-center py-5">
+    <div class="container">
+      <h2 class="ubicacions-title">Les nostres pastisseries</h2>
+      <p class="ubicacions-subtitle">Troba la teva pastisseria Dolcea més propera</p>
+      
+      <div class="row g-4">
         <!-- Barcelona -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card border-0 shadow-sm h-100">
-            <div class="map-placeholder" data-city="barcelona">
-              MAPA BARCELONA
+            <div class="map-container">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.373206823091!2d2.170595976952959!3d41.38590137129838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f5ac8c5ed1%3A0x6a56ac2d5a5b3e3b!2sLa%20Rambla%2C%20Barcelona!5e0!3m2!1sca!2ses!4v1698765432100!5m2!1sca!2ses" 
+                width="100%" 
+                height="200" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Mapa de la pastisseria Dolcea a Barcelona">
+              </iframe>
             </div>
             <div class="card-body">
               <h3 class="card-title">Barcelona</h3>
-              <p class="card-text">Avinguda del Pastís, 45<br>08001 Barcelona</p>
+              <p class="card-text">La Rambla, 123<br>08002 Barcelona</p>
               <p class="card-text"><small>Obert de dimarts a diumenge de 9:00 a 21:00</small></p>
-              <a href="#" class="btn btn-outline-primary btn-sm">Com arribar-hi</a>
+              <a href="https://maps.google.com/?q=La+Rambla+Barcelona" target="_blank" class="btn btn-outline-primary btn-sm">Com arribar-hi</a>
             </div>
           </div>
         </div>
         
-        <!-- València -->
+        <!-- Girona -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card border-0 shadow-sm h-100">
-            <div class="map-placeholder" data-city="valencia">
-              MAPA VALÈNCIA
+            <div class="map-container">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2982.698258367072!2d2.824550976961679!3d41.591379971261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bae73b8c6e6f3d%3A0x7c3e8b4b4b4b4b4b!2sPla%C3%A7a%20de%20la%20Independ%C3%A8ncia%2C%20Girona!5e0!3m2!1sca!2ses!4v1698765432100!5m2!1sca!2ses" 
+                width="100%" 
+                height="200" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Mapa de la pastisseria Dolcea a Girona">
+              </iframe>
             </div>
             <div class="card-body">
-              <h3 class="card-title">València</h3>
-              <p class="card-text">Plaça de la Torreta, 12<br>46001 València</p>
-              <p class="card-text"><small>Obert tots els dies de 8:30 a 20:30</small></p>
-              <a href="#" class="btn btn-outline-primary btn-sm">Com arribar-hi</a>
+              <h3 class="card-title">Girona</h3>
+              <p class="card-text">Plaça Independència, 45<br>17001 Girona</p>
+              <p class="card-text"><small>Obert de dilluns a dissabte de 8:30 a 20:00</small></p>
+              <a href="https://maps.google.com/?q=Plaça+Independència+Girona" target="_blank" class="btn btn-outline-primary btn-sm">Com arribar-hi</a>
             </div>
           </div>
         </div>
@@ -337,38 +958,47 @@
         <!-- Elx -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card border-0 shadow-sm h-100">
-            <div class="map-placeholder" data-city="elx">
-              MAPA ELX
+            <div class="map-container">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.834394038878!2d-0.701388884667896!3d38.262379979765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b6c8d0b0b0b%3A0x9b8b9b9b9b9b9b9b!2sCorredora%2C%20Elx%2C%20Alacant!5e0!3m2!1sca!2ses!4v1698765432100!5m2!1sca!2ses" 
+                width="100%" 
+                height="200" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Mapa de la pastisseria Dolcea a Elx">
+              </iframe>
             </div>
             <div class="card-body">
               <h3 class="card-title">Elx</h3>
-              <p class="card-text">Carrer Palmeral, 8<br>03201 Elx, Alacant</p>
+              <p class="card-text">Carrer Corredora, 28<br>03201 Elx, Alacant</p>
               <p class="card-text"><small>Obert de dilluns a dissabte de 8:00 a 19:00</small></p>
-              <a href="#" class="btn btn-outline-primary btn-sm">Com arribar-hi</a>
+              <a href="https://maps.google.com/?q=Carrer+Corredora+Elx" target="_blank" class="btn btn-outline-primary btn-sm">Com arribar-hi</a>
             </div>
           </div>
         </div>
-      </div>
-      
-      <!-- Sant Julià de Vilatorta (Especial) -->
-      <div class="row mt-5">
-        <div class="col-12">
-          <div class="card bg-light border-0 shadow-sm">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <div class="map-placeholder h-100" data-city="sant-julia">
-                  MAPA SANT JULIÀ
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body p-4">
-                  <h3 class="card-title">Taller Artesà - Sant Julià de Vilatorta</h3>
-                  <p class="card-text">Carrer del Forn Vell, 2<br>08504 Sant Julià de Vilatorta, Barcelona</p>
-                  <p class="card-text">Aquesta és la nostra seu principal, on creem les nostres receptes més exclusives i formem als nous pastissers Dolcea.</p>
-                  <p class="card-text"><small>Visites amb cita prèvia · Tallers mensuals</small></p>
-                  <a href="#" class="btn btn-primary">Sol·licita visita</a>
-                </div>
-              </div>
+        
+        <!-- Lleida -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="map-container">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.373206823091!2d0.620595976952959!3d41.61490137129838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a6e0b5f5f5f5f5%3A0x9b8b9b9b9b9b9b9b!2sCarrer%20Major%2C%20Lleida!5e0!3m2!1sca!2ses!4v1698765432100!5m2!1sca!2ses" 
+                width="100%" 
+                height="200" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Mapa de la pastisseria Dolcea a Lleida">
+              </iframe>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Lleida</h3>
+              <p class="card-text">Carrer Major, 67<br>25002 Lleida</p>
+              <p class="card-text"><small>Obert de dilluns a dissabte de 8:00 a 20:00</small></p>
+              <a href="https://maps.google.com/?q=Carrer+Major+Lleida" target="_blank" class="btn btn-outline-primary btn-sm">Com arribar-hi</a>
             </div>
           </div>
         </div>
@@ -377,19 +1007,155 @@
   </section>
 
   <!-- PEU DE PÀGINA -->
-  <footer class="text-center py-4">
+  <footer class="footer-dolcea">
     <div class="container">
-      <p class="mb-2">&copy; 2025 Dolcea · Pastisseria Artesanal</p>
-      <small>Contacte: info@dolcea.cat | Instagram: @dolcea_pastisseria</small>
-      <div class="mt-3">
-        <a href="#" class="text-white me-3">Política de privacitat</a>
-        <a href="#" class="text-white">Avís legal</a>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="img/logodolcea.png" alt="Dolcea - Pastisseria Artesanal" height="60">
+          <p class="footer-tagline">Viu dolç. Viu Dolcea.</p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Explora</h4>
+            <ul>
+              <li><a href="#hero">Inici</a></li>
+              <li><a href="#pastis-mes">Pastís del Mes</a></li>
+              <li><a href="#dolcos">Els Nostres Dolços</a></li>
+              <li><a href="#moments">Moments Dolcea</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Serveis</h4>
+            <ul>
+              <li><a href="#personalitzacio">Personalització</a></li>
+              <li><a href="#ubicacions">Ubicacions</a></li>
+              <li><a href="#app">Comunitat</a></li>
+              <li><a href="#contacte">Contacte</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Empresa</h4>
+            <ul>
+              <li><a href="#">Sobre Nosaltres</a></li>
+              <li><a href="#">Treballa amb Nosaltres</a></li>
+              <li><a href="#">Franquícies</a></li>
+              <li><a href="#">Premsa</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Política de Privacitat</a></li>
+              <li><a href="#">Condicions d'Ús</a></li>
+              <li><a href="#">Cookies</a></li>
+              <li><a href="#">Avís Legal</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-social">
+          <h4>Segueix-nos</h4>
+          <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="TikTok">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="YouTube">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-newsletter">
+          <h4>Subscriu-te al nostre butlletí</h4>
+          <p>Rep les nostres novetats i ofertes exclusives</p>
+          <form class="newsletter-form" aria-label="Formulari de subscripció al butlletí">
+            <input type="email" placeholder="El teu correu electrònic" required aria-required="true">
+            <button type="submit">Subscriure'm</button>
+          </form>
+        </div>
+        
+        <div class="footer-copyright">
+          <p>&copy; 2025 Dolcea · Pastisseria Artesanal · Tots els drets reservats</p>
+          <div class="footer-payment">
+            <span>Pagaments segurs amb:</span>
+            <div class="payment-icons">
+              <span>Visa</span>
+              <span>Mastercard</span>
+              <span>PayPal</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Scripts al FINAL del body -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="JS/animacions.js"></script>
+  <script src="JS/gsap-animations.js"></script>
+  
+  <script>
+  // Millores d'accessibilitat per a navegació per teclat
+  document.addEventListener('DOMContentLoaded', function() {
+    // Millorar navegació per teclat als sliders
+    const sliders = document.querySelectorAll('.carousel');
+    sliders.forEach(slider => {
+      slider.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+          this.querySelector('.carousel-control-prev').click();
+        } else if (e.key === 'ArrowRight') {
+          this.querySelector('.carousel-control-next').click();
+        }
+      });
+    });
+
+    // Gestionar focus en els filtres de la galeria
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach((button, index) => {
+      button.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight') {
+          const nextIndex = (index + 1) % filterButtons.length;
+          filterButtons[nextIndex].focus();
+        } else if (e.key === 'ArrowLeft') {
+          const prevIndex = (index - 1 + filterButtons.length) % filterButtons.length;
+          filterButtons[prevIndex].focus();
+        }
+      });
+    });
+
+    // Saltar al contingut principal amb tecla d'accés
+    document.addEventListener('keydown', function(e) {
+      if (e.key === '1' && e.altKey) {
+        e.preventDefault();
+        document.querySelector('#main-content').focus();
+      }
+    });
+
+    // Solució scroll - al final del body
+    window.addEventListener('load', function() {
+        window.scrollTo(0, 0);
+    });
+  });
+  </script>
 </body>
 </html>
