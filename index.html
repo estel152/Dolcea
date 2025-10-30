@@ -1174,5 +1174,29 @@ window.addEventListener('load', function() {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="./JS/animacions.js"></script>
 <script src="./JS/gsap-animations.js"></script>
+  <script>
+// VERIFICACIÓN DE CARGA
+console.log('=== VERIFICANDO ARCHIVOS ===');
+
+// Verificar que GSAP está cargado
+if (typeof gsap !== 'undefined') {
+    console.log('✅ GSAP cargado correctamente');
+} else {
+    console.log('❌ GSAP NO cargado');
+}
+
+// Esperar a que se carguen los otros archivos
+setTimeout(() => {
+    console.log('=== ARCHIVOS JS ===');
+    console.log('animacions.js cargado:', typeof iniciarAnimacions !== 'undefined');
+    console.log('gsap-animations.js cargado:', typeof inicialitzarGSAPAnimations !== 'undefined');
+    
+    // Forzar la inicialización si los archivos están cargados
+    if (typeof inicialitzarGSAPAnimations !== 'undefined') {
+        console.log('🚀 Iniciando GSAP manualmente...');
+        inicialitzarGSAPAnimations();
+    }
+}, 1000);
+</script>
 </body>
 </html>
