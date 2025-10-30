@@ -1154,49 +1154,13 @@
     });
   });
   </script>
-  <script>
-// DEBUG: Verificar carga de scripts
-console.log('=== DEBUG GSAP ===');
-console.log('GSAP cargado:', typeof gsap !== 'undefined');
-console.log('ScrollTrigger cargado:', typeof ScrollTrigger !== 'undefined'); 
-console.log('Flip cargado:', typeof Flip !== 'undefined');
-
-// Verificar que nuestros scripts se cargan
-window.addEventListener('load', function() {
-    console.log('Página completamente cargada');
-    
-    // Verificar si las funciones GSAP existen
-    console.log('Función inicialitzarGSAPAnimations existe:', typeof inicialitzarGSAPAnimations !== 'undefined');
-    console.log('Función inicialitzarFlipGaleria existe:', typeof inicialitzarFlipGaleria !== 'undefined');
-});
-</script>
+ 
     <!-- Scripts al FINAL del body -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="./JS/animacions.js"></script>
 <script src="./JS/gsap-animations.js"></script>
   <script>
-// VERIFICACIÓN DE CARGA
-console.log('=== VERIFICANDO ARCHIVOS ===');
 
-// Verificar que GSAP está cargado
-if (typeof gsap !== 'undefined') {
-    console.log('✅ GSAP cargado correctamente');
-} else {
-    console.log('❌ GSAP NO cargado');
-}
-
-// Esperar a que se carguen los otros archivos
-setTimeout(() => {
-    console.log('=== ARCHIVOS JS ===');
-    console.log('animacions.js cargado:', typeof iniciarAnimacions !== 'undefined');
-    console.log('gsap-animations.js cargado:', typeof inicialitzarGSAPAnimations !== 'undefined');
-    
-    // Forzar la inicialización si los archivos están cargados
-    if (typeof inicialitzarGSAPAnimations !== 'undefined') {
-        console.log('🚀 Iniciando GSAP manualmente...');
-        inicialitzarGSAPAnimations();
-    }
-}, 1000);
 </script>
 </body>
 </html>
