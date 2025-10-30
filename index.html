@@ -1157,5 +1157,21 @@
     });
   });
   </script>
+  <script>
+// DEBUG: Verificar carga de scripts
+console.log('=== DEBUG GSAP ===');
+console.log('GSAP cargado:', typeof gsap !== 'undefined');
+console.log('ScrollTrigger cargado:', typeof ScrollTrigger !== 'undefined'); 
+console.log('Flip cargado:', typeof Flip !== 'undefined');
+
+// Verificar que nuestros scripts se cargan
+window.addEventListener('load', function() {
+    console.log('Página completamente cargada');
+    
+    // Verificar si las funciones GSAP existen
+    console.log('Función inicialitzarGSAPAnimations existe:', typeof inicialitzarGSAPAnimations !== 'undefined');
+    console.log('Función inicialitzarFlipGaleria existe:', typeof inicialitzarFlipGaleria !== 'undefined');
+});
+</script>
 </body>
 </html>
