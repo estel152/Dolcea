@@ -373,15 +373,15 @@ function inicialitzarPersonalitzacio() {
 
     // Arrays de bases i toppings
     const bases = [
-        { img: 'img/base nata.png', name: 'Nata' },
-        { img: 'img/base 3 xocos.png', name: '3 Xocolates' },
-        { img: 'img/base bizcocho.png', name: 'Bizcocho' },
-        { img: 'img/base caramel xoco.png', name: 'Caramel Xocolata' }
+        { img: 'img/basenata.png', name: 'Nata' },
+        { img: 'img/base3xocos.png', name: '3 Xocolates' },
+        { img: 'img/basebizcocho.png', name: 'Bizcocho' },
+        { img: 'img/basecaramelxoco.png', name: 'Caramel Xocolata' }
     ];
 
     const toppings = [
-        { img: 'img/maduixa nabiu.png', name: 'Maduixa & Nabiu' },
-        { img: 'img/maduixa nata.png', name: 'Maduixa & Nata' },
+        { img: 'img/maduixanabiu.png', name: 'Maduixa & Nabiu' },
+        { img: 'img/maduixanata.png', name: 'Maduixa & Nata' },
         { img: 'img/nueces.png', name: 'Nueces' }
     ];
 
